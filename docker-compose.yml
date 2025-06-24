@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: gmedia_democase
+      MYSQL_USER: gmedia_democase2
+      MYSQL_PASSWORD: Janglidalam29J
+    ports:
+      - "3306:3306"
